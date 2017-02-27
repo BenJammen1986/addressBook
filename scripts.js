@@ -1,11 +1,21 @@
 // back-end logic
-function Contact(first, last) {
+function Contact(first, last, address) {
   this.firstName = first;
   this.lastName = last;
+  this.addresses = []; //create array because there may be multiple addresses entered.
 }
+
+function Address(street, city, state) {
+  this.street = street;
+  this.city = city;
+  this.state = state;
+}
+
  Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
+
+//newContact.addresses.push();
 
 //front-end logic
 $(document).ready(function() {
@@ -21,7 +31,7 @@ debugger;
       $("input#new-last-name").val("");
     $(".contact").last().click(function() {
       $("#show-contact").show();
-      $("show-contact h2").text(newContact.firstName);
+      $("#show-contact h2").text(newContact.firstName);
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
     });
