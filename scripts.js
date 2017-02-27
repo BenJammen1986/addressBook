@@ -4,7 +4,7 @@ function Contact(first, last) {
   this.lastName = last;
 }
  Contact.prototype.fullName = function() {
-  return this.fistName + " " + this.lastName;
+  return this.firstName + " " + this.lastName;
 }
 
 //front-end logic
