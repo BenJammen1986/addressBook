@@ -16,6 +16,9 @@ debugger;
     var inputtedLastName = $("input#new-last-name").val();
     var newContact = new Contact(inputtedFirstName, inputtedLastName);
     $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() +  "</span></li>");
+    //this clears the input field so new data can be entered. This is solely to make the UI more user friendly.
+      $("input#new-first-name").val("");
+      $("input#new-last-name").val("");
     $(".contact").last().click(function() {
       $("#show-contact").show();
       $("show-contact h2").text(newContact.firstName);
