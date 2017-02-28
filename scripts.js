@@ -32,22 +32,24 @@ function resetFields() {
 // user interface logic
 $(document).ready(function() {
 
-  $("#add-address").click(function() {
-    $("#new-addresses").append('<div class="new-address">' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-address-type">Address Type (example: Home)</label>' +
-                                   '<input type="text" class="form-control new-address-type">' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-street">Street</label>' +
-                                   '<input type="text" class="form-control new-street">' +
-                                 '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-city">City</label>' +
-                                   '<input type="text" class="form-control new-city">' +
-                                 '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-state">State</label>' +
-                                   '<input type="text" class="form-control new-state">' +
+$("#add-address").click(function() {
+    $("#new-addresses").append('<div class="added-address">' +
+                                 '<div class="new-address">' +
+                                   '<div class="form-group">' +
+                                     '<label for="new-address-type">Address Type (example: Home)</label>' +
+                                     '<input type="text" class="form-control new-address-type">' +
+                                   '<div class="form-group">' +
+                                     '<label for="new-street">Street</label>' +
+                                     '<input type="text" class="form-control new-street">' +
+                                   '</div>' +
+                                   '<div class="form-group">' +
+                                     '<label for="new-city">City</label>' +
+                                     '<input type="text" class="form-control new-city">' +
+                                   '</div>' +
+                                   '<div class="form-group">' +
+                                     '<label for="new-state">State</label>' +
+                                     '<input type="text" class="form-control new-state">' +
+                                   '</div>' +
                                  '</div>' +
                                '</div>');
   });
@@ -64,6 +66,7 @@ $(document).ready(function() {
         var inputtedState = $(this).find("input.new-state").val();
         var newAddress = new Address(inputtedType, inputtedStreet, inputtedCity, inputtedState)
         newContact.addresses.push(newAddress)
+        $("div").remove(".added-address");
       });
     $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
   $(".contact").last().click(function() {
